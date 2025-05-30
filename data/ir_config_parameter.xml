@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <record id="url_link_whatsapp_server" model="ir.config_parameter" forcecreate="0">
+        <field name="key">mbf_crm_whatsapp.url_wajoss_server</field>
+        <field name="value">https://wajoss.fikrihost.my.id/v1/</field>
+    </record>
+
+</odoo>

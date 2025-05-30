@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+       // -- ------------------------------------
+       // -- Perhatian
+       // -- Khusus untuk Windows User : 
+       // -- hasil dari Copy Path harus diganti dengan double-backslash \\
+       // -- ------------------------------------
+       {
+        
+                "name": "Run Odoo",
+                "type": "python",
+                "request": "launch",
+                "stopOnEntry": false,
+                "console": "integratedTerminal",
+                "python": "D:\\odoo15\\python\\python.exe",
+                // "python": "C:\\odoobuild\\winpy64\\python-3.7.7.amd64\\python.exe",
+                "program": "D:\\odoo15\\server\\odoo-bin",
+                "host":"localhost",
+                // "port":12345,
+                "args": [
+                    "--config=D:\\odoo15\\server\\odoo.conf",
+                    // "--database=123",
+                    // "--update=custom_dashboard"
+                ]
+            }
+        ]
+       }

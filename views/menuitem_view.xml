@@ -1,0 +1,13 @@
+<odoo>
+
+	<menuitem id="menu_whatsapp_parent" name="Whatsapp"
+		parent="base.menu_custom" sequence="1" />
+
+	
+              
+    <menuitem id="menu_whatsapp_servers" 
+    		  parent="menu_whatsapp_parent" 
+    		  action="action_ir_whatsapp_server_list" 
+    		  sequence="15" groups="base.group_no_one"/>
+
+</odoo>

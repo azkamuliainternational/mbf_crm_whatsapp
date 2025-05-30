@@ -1,0 +1,25 @@
+<odoo>
+<record id='view_crm_lead_whatsapp' model='ir.ui.view'>
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <!-- <field name="inherit_id" ref="crm.crm_lead_view_form"/> -->
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+
+
+    <!-- <label for="whatsapp" class="oe_inline"/> -->
+                <!-- <div class="o_row o_row_readonly"> -->
+                    <!-- <button name="send_whatsapp" class="fa fa-whatsapp fa-6x text-success" title="Kirim whatsapp" type="object" /> -->
+                     <xpath expr="//button[@name='toggle_active']" position="after">
+                    <button name="send_whatsapp" string="Kirim Whatsapp"  class="oe_highlight" type="object" />
+                   </xpath>
+ <!-- </div> -->
+            <!-- <xpath expr="//label[@for='phone']" position="before"> -->
+            <xpath expr="//field[@name='partner_address_phone']" position="before">
+                	 
+                    <field name="whatsapp" />
+               
+            </xpath>
+        </field>
+    </record>
+</odoo>

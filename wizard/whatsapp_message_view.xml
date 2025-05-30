@@ -1,0 +1,36 @@
+<odoo>
+
+    <record id="whatsapp_compose_message_view" model="ir.ui.view">
+        <field name="name">whatsapp.compose.message.form</field>
+        <field name="model">whatsapp.compose.message</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Whatsapp Compose Message">
+            
+                <div name="mail_form">
+                		<field name="model" invisible="1"/>
+                    <group>  
+                      <label for="whatsapp" string="Penerima"/>
+                      <div>
+                   <field name="whatsapp_name" class="oe_inline" readonly="1"/> <span> - </span> 
+                  <field name="whatsapp" class="oe_inline" readonly="1"/>
+                
+                  </div>
+                   </group>  
+                  
+
+                    <div>Isi Pesan</div> 
+                    <field name="message" options="{'style-inline': true}" />
+                    
+                </div>
+                <footer>
+                    <button name="kirim_wa" string="  Send Whatsapp" icon="fa-whatsapp" type="object" class="oe_highlight"/>
+                    <button name="cancel" string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

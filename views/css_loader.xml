@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Load css File -->
+    <template id="mbf_crm_whatsapp_css_asset" name="mbf_crm_whatsapp_css assets" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/mbf_crm_whatsapp/static/src/css/message.css"/>
+      </xpath>
+    </template>
+  </data>
+</odoo>
