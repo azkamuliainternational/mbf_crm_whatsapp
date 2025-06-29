@@ -6,10 +6,10 @@
     <record model="ir.ui.view" id="ir_whatsapp_server_form">
         <field name="model">ir.whatsapp_server</field>
         <field name="arch" type="xml">
-            <form string="Whatsapp Servers" edit="true" create="false" delete="false">
+            <form string="Whatsapp Servers" >
                 <header>
                    <button name="cek_koneksi" string="  Check Connection" type="object" class="btn-primary" icon="fa-check-circle-o"/>
-                    <button name="create_device" string="  Create Device" type="object" class="btn-primary" icon="fa-check-circle-o" attrs="{'invisible': [('status','=','authenticated')]}"/> 
+                    <!-- <button name="create_device" string="  Create Device" type="object" class="btn-primary" icon="fa-check-circle-o" attrs="{'invisible': [('status','=','authenticated')]}"/>  -->
                    <button name="scan_init" string="  Scan Init" type="object" class="btn-primary" icon="fa-qrcode"                  attrs="{'invisible': [('status','=','authenticated')]}"/>
 
                    <button name="scan_qr_code" string="  Scan QR Code" type="object" class="btn-primary" icon="fa-qrcode" attrs="{'invisible': [('status','=','authenticated')]}"/>
@@ -22,8 +22,10 @@
                 </header>
                 <sheet>
                     <group >
+                        
+                        <field name="url_server_whatapps"/>
                         <field name="api_secret"/>
-                        <field name="whatsapp_number" class="oe_inline" readonly="1"/>
+                        <field name="whatsapp_number" class="oe_inline"/>
                         <field name="name" class="oe_inline" readonly="1"/>
                         <field name="message_response" class="oe_inline" readonly="1"/>
                         <field name="uuid" class="oe_inline" readonly="1"/>
@@ -53,7 +55,7 @@
     <record model="ir.ui.view" id="ir_whatsapp_server_list">
         <field name="model">ir.whatsapp_server</field>
         <field name="arch" type="xml">
-            <tree string="Whatsapp Servers" edit="true" create="false" delete="false">
+            <tree string="Whatsapp Servers" >
 
                 <field name="name"/>
                 <field name="whatsapp_number"/>

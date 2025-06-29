@@ -25,15 +25,16 @@
     'depends': ['crm'],    
     'data': [
         'security/ir.model.access.csv',
-        'data/ir_config_parameter.xml',
-        'data/ir.whatsapp_server.xml',
+        # 'data/ir_config_parameter.xml',
+        # 'data/ir.whatsapp_server.xml',
         'views/crm_lead_view.xml',
         'views/ir_whatsapp_server.xml',
         'views/menuitem_view.xml',
         'wizard/whatsapp_message_view.xml',
         'views/css_loader.xml',
     ],
-    
+    'qweb': ['static/src/xml/chat_bubble_template.xml'],  # Optional
+
     # 'assets': {
     #     'web.assets_backend': [
     #         'mbf_crm_whatsapp/static/src/css/message.css',

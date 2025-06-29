@@ -1,0 +1,21 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="mbf_crm_whatsapp.WhatsAppChatBubbles">
+        <div class="oe_chat_template" style="margin-top: 20px;">
+            <div style="padding:10px;font-size: 20px; font-weight: bold;">History Percakapan:</div>
+            <t t-foreach="props.record.data.whatsapp_message_ids" t-as="msg">
+                <div class="chat-bubble left" style="margin-bottom:10px;">
+                    <div class="avatar" style="float:left;margin-right:10px;">
+                        <img src="/mbf_crm_whatsapp/static/src/img/cs.png" width="40"/>
+                    </div>
+                    <div class="message" style="background:#e0e0e0;padding:10px;border-radius:10px;max-width:70%;">
+                        <t t-esc="msg.data.body"/>
+                        <br/>
+                        <span class="message-timestamp-right" style="font-size: 12px; float: right;">
+                            <t t-esc="msg.data.date"/>
+                        </span>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

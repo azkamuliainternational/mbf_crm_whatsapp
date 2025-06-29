@@ -11,9 +11,9 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class KlikApi(object):
-    def __init__(self,api_secret,uuid,device_key):
-        APIUrl = request.env['ir.config_parameter'].sudo().get_param('mbf_crm_whatsapp.url_wajoss_server')
-        self.APIUrl =APIUrl
+    def __init__(self,url_server_whatapps,api_secret,uuid,device_key):
+        # APIUrl = request.env['ir.config_parameter'].sudo().get_param('mbf_crm_whatsapp.url_wajoss_server')
+        self.APIUrl =url_server_whatapps
         self.api_secret = api_secret
         self.uuid = uuid 
         self.device_key=device_key
@@ -21,16 +21,22 @@ class KlikApi(object):
     def get_api(self,tipe):
 
         try:
-            Header={'Content-Type': 'application/json','Authorization':self.api_secret}
+            Header={'Content-Type': 'application/json','x-api-key':self.api_secret}
             if  (tipe=="cek_koneksi") :
-                r=requests.get('{}device'.format(self.APIUrl), headers=Header)
+                _logger.warning('{}/session/status/{}'.format(self.APIUrl,self.uuid))
+                
+                r=requests.get('{}/session/status/{}'.format(self.APIUrl,self.uuid), headers=Header)
             elif (tipe=="scan_init")  :    
-                r=requests.get('{}device/{}/init'.format(self.APIUrl,self.uuid), headers=Header)
+                _logger.warning('{}/session/start/{}'.format(self.APIUrl,self.uuid))
+                r=requests.get('{}/session/start/{}'.format(self.APIUrl,self.uuid), headers=Header)
             elif (tipe=="scan_qr_code")  :    
-                _logger.warning('********** {} **************'.format('{}device/{}/scan'.format(self.APIUrl,self.uuid)))
-                r=requests.get('{}device/{}/scan'.format(self.APIUrl,self.uuid), headers=Header)
+                _logger.warning('********** {} **************'.format('{}/session/qr/{}'.format(self.APIUrl,self.uuid)))
+                r=requests.get('{}/session/qr/{}'.format(self.APIUrl,self.uuid), headers=Header)
+            elif (tipe=="logout")  :    
+                _logger.warning('********** {} **************'.format('{}/session/terminate/{}'.format(self.APIUrl,self.uuid)))
+                r=requests.get('{}/session/terminate/{}'.format(self.APIUrl,self.uuid), headers=Header)
                
-            _logger.warning('response get_api: {r.text}')
+            _logger.warning('response get_api: {}'.format(r))
             return r
         except (requests.exceptions.HTTPError,
                 requests.exceptions.RequestException,
@@ -41,16 +47,18 @@ class KlikApi(object):
 
         try:
             data_body = json.dumps(data)
-            Header={'Content-Type': 'application/json','Authorization':self.api_secret}
+            Header={'Content-Type': 'application/json','x-api-key':self.api_secret}
             if  (tipe=="logout") :
-                r=requests.delete('{}device/{}/logout'.format(self.APIUrl,self.uuid), headers=Header,data=data_body)
-            elif (tipe=="create_device") :
-                r=requests.post('{}device'.format(self.APIUrl), headers=Header,data=data_body)
+                _logger.warning('{}/session/terminate/{}'.format(self.APIUrl,self.uuid))
+                r=requests.delete('{}/session/terminate/{}'.format(self.APIUrl,self.uuid), headers=Header,data=data_body)
+            elif (tipe=="create_device"):
+                _logger.warning('{}/session/start/{}'.format(self.APIUrl,self.uuid))
+                r=requests.post('{}/session/start/{}'.format(self.APIUrl,self.uuid), headers=Header)
             elif (tipe=="send_message"):
                 _logger.warning('\n\n{}message/send-text'.format(self.APIUrl))
                 _logger.warning('{}'.format(Header))
                 _logger.warning('{}\n\n'.format(data_body))
-                r=requests.post('{}message/send-text'.format(self.APIUrl), headers=Header,data=data_body)
+                r=requests.post('{}/client/sendMessage/{}'.format(self.APIUrl,self.uuid), headers=Header,data=data_body)
                   
             return r
         except (requests.exceptions.HTTPError,

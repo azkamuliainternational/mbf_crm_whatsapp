@@ -5,6 +5,8 @@
     <template id="mbf_crm_whatsapp_css_asset" name="mbf_crm_whatsapp_css assets" inherit_id="web.assets_backend">
       <xpath expr="." position="inside">
         <link rel="stylesheet" href="/mbf_crm_whatsapp/static/src/css/message.css"/>
+        <!-- <script type="text/javascript" src="/mbf_crm_whatsapp/static/src/js/custom_mail_thread.js"/> -->
+        <script type="text/javascript" src="/mbf_crm_whatsapp/static/src/js/chat_bubble_widget.js"/>
       </xpath>
     </template>
   </data>

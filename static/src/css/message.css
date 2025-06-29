@@ -14,7 +14,7 @@
     /* height: 50px; */
     text-align: right;
     font: 400 .9em 'Open Sans', sans-serif;
-    border: 1px solid #97C6E3;
+    border: 1px solid #009dff;
     border-radius: 10px;
     font-size:16px;
 }
@@ -41,19 +41,18 @@
 }
 
 .message-timestamp-right {
-    position: absolute;
     font-size: .85em;
     font-weight: 300;
-    bottom: 5px;
-    right: 5px;
+    color:  blueviolet;
+
+    font-family: monospace;
 }
 
 .message-timestamp-left {
-    position: absolute;
     font-size: .85em;
     font-weight: 300;
-    bottom: 5px;
-    left: 5px;
+    color:  #009dff;    
+    font-family: monospace;
 }
 
 .message-blue:after {
@@ -104,9 +103,56 @@
     right: -17px;
 }
 
+.oe_chat_template {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chat-bubble {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.chat-bubble.left {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.chat-bubble.right {
+    flex-direction: row-reverse;
+    /* justify-content: flex-end; */
+}
+
+.chat-bubble .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.chat-bubble .message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 0 10px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.chat-bubble.left .message {
+    background-color: #e0f0ff;
+    color: #000;
+}
+
+.chat-bubble.right .message {
+    background-color: #d4a5ff;
+    color: #000;
+}
 
 
-
+.o_field_widget[name="whatsapp_message_ids"] {
+    display: block !important;
+}
 
 
 

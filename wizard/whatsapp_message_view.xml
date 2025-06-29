@@ -24,7 +24,7 @@
                     
                 </div>
                 <footer>
-                    <button name="kirim_wa" string="  Send Whatsapp" icon="fa-whatsapp" type="object" class="oe_highlight"/>
+                    <button name="kirim_wa" string="  Send Whatsapp" icon="fa-whatsapp" type="object"     class="btn btn-success oe_inline"/>
                     <button name="cancel" string="Cancel" special="cancel"/>
                 </footer>
             </form>

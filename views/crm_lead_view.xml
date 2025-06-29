@@ -6,20 +6,50 @@
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
         <field name="arch" type="xml">
 
+         
 
     <!-- <label for="whatsapp" class="oe_inline"/> -->
                 <!-- <div class="o_row o_row_readonly"> -->
                     <!-- <button name="send_whatsapp" class="fa fa-whatsapp fa-6x text-success" title="Kirim whatsapp" type="object" /> -->
-                     <xpath expr="//button[@name='toggle_active']" position="after">
+                     <!-- <xpath expr="//button[@name='toggle_active']" position="after">
                     <button name="send_whatsapp" string="Kirim Whatsapp"  class="oe_highlight" type="object" />
-                   </xpath>
+                   </xpath> -->
  <!-- </div> -->
             <!-- <xpath expr="//label[@for='phone']" position="before"> -->
             <xpath expr="//field[@name='partner_address_phone']" position="before">
                 	 
                     <field name="whatsapp" />
+                     <field name="whatsapp_active"
+       widget="boolean_toggle"/>
                
             </xpath>
+<xpath expr="//notebook/page[field[@name='description']]" position="before">
+
+    <page name="whatsapp_page" string="WhatsApp">
+
+           
+
+
+
+<!-- Chat template section -->
+<div class="oe_chat_template" style="margin-top: 20px;">
+<div class="o_row"> <button name="send_whatsapp"
+                    string="Kirim pesan"
+                    type="object"
+                   class="btn btn-success oe_inline"
+                    icon="fa-whatsapp"
+                    style="margin-left: 10px;"/>  </div>
+
+     <div style="padding:10px;font-size: 20px; font-weight: bold;">History Percakapan :</div>               
+   
+             <field name="whatsapp_message_ids"
+                   widget="whatsapp_chat_bubble"
+                   context="{'default_lead_id': active_id}" readonly="1"/>
+</div>
+
+     
+    </page>
+</xpath>
         </field>
     </record>
 </odoo>
