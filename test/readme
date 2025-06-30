@@ -1,0 +1,2 @@
+### cara compile test dalam python
+/opt/odoo12/venv/bin/python3 /opt/odoo12/odoo-bin shell -c /etc/odoo/odoo12.conf -d odoo12 <test/activity.py
